@@ -1,0 +1,11 @@
+{
+	"id": "langpad",
+	"name": "Langpad",
+	"version": "0.10.2",
+	"minAppVersion": "0.15.0",
+	"description": "Chat with AI agents (Langcli, Claude Code, Codex, Gemini CLI) via ACP directly from your vault.",
+	"author": "LangcliTeam",
+	"authorUrl": "https://github.com/LangcliTeam",
+	"fundingUrl": "https://www.buymeacoffee.com/langpad",
+	"isDesktopOnly": true
+}

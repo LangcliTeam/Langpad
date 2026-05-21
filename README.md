@@ -1,1 +1,101 @@
-# Langpad
+<h1 align="center">Langpad for Obsidian</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/github/downloads/LangcliTeam/Langpad/total" alt="GitHub Downloads">
+  <img src="https://img.shields.io/github/license/LangcliTeam/Langpad" alt="License">
+  <img src="https://img.shields.io/github/v/release/LangcliTeam/Langpad" alt="GitHub release">
+  <img src="https://img.shields.io/github/last-commit/LangcliTeam/Langpad" alt="GitHub last commit">
+  <a href="https://github.com/LangcliTeam/Langpad/discussions"><img src="https://img.shields.io/github/discussions/LangcliTeam/Langpad" alt="GitHub Discussions"></a>
+</p>
+
+Bring AI agents (Langcli, Claude Code, Codex, Gemini CLI) directly into Obsidian. Chat with your AI assistant right from your vault.
+
+Built on [Agent Client Protocol (ACP)](https://github.com/agentclientprotocol/agent-client-protocol) by Zed.
+
+https://github.com/user-attachments/assets/1c538349-b3fb-44dd-a163-7331cbca7824
+
+## Features
+
+- **Note Mentions**: Reference your notes with `@notename` syntax
+- **Image Attachments**: Paste or drag-and-drop images into the chat
+- **Slash Commands**: Use `/` commands provided by your agent
+- **Multi-Agent Support**: Switch between Langcli, Claude Code, Codex, Gemini CLI, and custom agents
+- **Multi-Session**: Run multiple agents simultaneously in separate views
+- **Floating Chat**: A persistent, collapsible chat window for quick access
+- **Mode & Model Switching**: Change AI models and agent modes from the chat
+- **Session History**: Resume or fork previous conversations
+- **Chat Export**: Save conversations as Markdown notes
+- **Terminal Integration**: Let agents execute commands and return results
+- **MCP Support**: Agents use their configured MCP servers — no extra setup needed in the plugin
+
+## Installation
+
+### Via BRAT (Recommended)
+
+1. Install the [BRAT](https://github.com/TfTHacker/obsidian42-brat) plugin
+2. Go to **Settings → BRAT → Add Beta Plugin**
+3. Paste: `https://github.com/LangcliTeam/Langpad`
+4. Enable **Langpad** from the plugin list
+
+### Manual Installation
+
+1. Download `main.js`, `manifest.json`, `styles.css` from [Releases](https://github.com/LangcliTeam/Langpad/releases)
+2. Place them in `VaultFolder/.obsidian/plugins/Langpad/`
+3. Enable the plugin in **Settings → Community Plugins**
+
+## Quick Start
+
+Open a terminal (Terminal on macOS/Linux, PowerShell on Windows) and run the following commands.
+
+1. **Install an agent and its ACP adapter** (e.g., Claude Code):
+   ```bash
+   curl -fsSL https://claude.ai/install.sh | bash   # Install Claude Code
+   npm install -g @agentclientprotocol/claude-agent-acp   # Install ACP adapter
+   ```
+
+2. **Login** (skip if using API key):
+   ```bash
+   claude
+   ```
+   Follow the prompts to authenticate with your Anthropic account.
+
+3. **Find the paths**:
+   ```bash
+   which node   # macOS/Linux
+   which claude-agent-acp
+
+   where.exe node   # Windows
+   where.exe claude-agent-acp
+   ```
+
+4. **Configure** in **Settings → Langpad**:
+   - **Node.js path**: e.g., `/usr/local/bin/node`
+   - **Built-in agents → Claude Code → Path**: e.g., `/usr/local/bin/claude-agent-acp` (not `claude`)
+   - **API key**: Add your key, or leave empty if logged in via CLI
+
+5. **Start chatting**: Click the Langpad icon in the ribbon
+
+### Setup Guides
+
+- [Claude Code](https://langcliteam.github.io/Langpad/agent-setup/claude-code.html)
+- [Codex](https://langcliteam.github.io/Langpad/agent-setup/codex.html)
+- [Gemini CLI](https://langcliteam.github.io/Langpad/agent-setup/gemini-cli.html)
+- [Custom Agents](https://langcliteam.github.io/Langpad/agent-setup/custom-agents.html) (OpenCode, Qwen Code, Kiro, Mistral Vibe, etc.)
+
+**[Full Documentation](https://langcliteam.github.io/Langpad/)**
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+For production builds:
+```bash
+npm run build
+```
+
+## License
+
+Apache License 2.0 - see [LICENSE](LICENSE) for details.
