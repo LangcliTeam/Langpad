@@ -770,6 +770,11 @@ export class AgentClientSettingTab extends PluginSettingTab {
 		});
 		const options: { id: string; label: string }[] = [
 			toOption(
+				this.plugin.settings.langcli.id,
+				this.plugin.settings.langcli.displayName ||
+					this.plugin.settings.langcli.id,
+			),
+			toOption(
 				this.plugin.settings.claude.id,
 				this.plugin.settings.claude.displayName ||
 					this.plugin.settings.claude.id,
