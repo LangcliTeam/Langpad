@@ -5,6 +5,19 @@ on:
         tags:
             - "*"
 
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: '日志级别'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+
 jobs:
     build:
         runs-on: ubuntu-latest
