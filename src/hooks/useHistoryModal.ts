@@ -40,9 +40,9 @@ export function useHistoryModal(
 				agent.clearMessages();
 				await sessionHistory.restoreSession(sessionId, cwd);
 				onAgentCwdChange?.(cwd);
-				new Notice("[Agent Client] Session restored");
+				new Notice("[Langpad] Session restored");
 			} catch (error) {
-				new Notice("[Agent Client] Failed to restore session");
+				new Notice("[Langpad] Failed to restore session");
 				logger.error("Session restore error:", error);
 			}
 		},
@@ -61,9 +61,9 @@ export function useHistoryModal(
 				agent.clearMessages();
 				await sessionHistory.forkSession(sessionId, cwd);
 				onAgentCwdChange?.(cwd);
-				new Notice("[Agent Client] Session forked");
+				new Notice("[Langpad] Session forked");
 			} catch (error) {
-				new Notice("[Agent Client] Failed to fork session");
+				new Notice("[Langpad] Failed to fork session");
 				logger.error("Session fork error:", error);
 			}
 		},
@@ -80,9 +80,9 @@ export function useHistoryModal(
 			try {
 				logger.log(`[ChatPanel] Deleting session: ${sessionId}`);
 				await sessionHistory.deleteSession(sessionId);
-				new Notice("[Agent Client] Session deleted");
+				new Notice("[Langpad] Session deleted");
 			} catch (error) {
-				new Notice("[Agent Client] Failed to delete session");
+				new Notice("[Langpad] Failed to delete session");
 				logger.error("Session delete error:", error);
 			}
 		},
@@ -97,9 +97,9 @@ export function useHistoryModal(
 					newTitle,
 					sessionCwd,
 				);
-				new Notice("[Agent Client] Title updated");
+				new Notice("[Langpad] Title updated");
 			} catch (error) {
-				new Notice("[Agent Client] Failed to update title");
+				new Notice("[Langpad] Failed to update title");
 				logger.error("Title update error:", error);
 			}
 		},

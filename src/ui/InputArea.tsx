@@ -337,14 +337,14 @@ export function InputArea({
 			const remaining = MAX_ATTACHMENT_COUNT - attachedFiles.length;
 			if (remaining <= 0) {
 				new Notice(
-					`[Agent Client] Maximum ${MAX_ATTACHMENT_COUNT} attachments allowed`,
+					`[Langpad] Maximum ${MAX_ATTACHMENT_COUNT} attachments allowed`,
 				);
 				return;
 			}
 			const toAdd = newFiles.slice(0, remaining);
 			if (toAdd.length < newFiles.length) {
 				new Notice(
-					`[Agent Client] Maximum ${MAX_ATTACHMENT_COUNT} attachments allowed`,
+					`[Langpad] Maximum ${MAX_ATTACHMENT_COUNT} attachments allowed`,
 				);
 			}
 			onAttachedFilesChange([...attachedFiles, ...toAdd]);
@@ -389,7 +389,7 @@ export function InputArea({
 			for (const file of files) {
 				if (file.size > MAX_IMAGE_SIZE_BYTES) {
 					new Notice(
-						`[Agent Client] Image too large (max ${MAX_IMAGE_SIZE_MB}MB)`,
+						`[Langpad] Image too large (max ${MAX_IMAGE_SIZE_MB}MB)`,
 					);
 					continue;
 				}
@@ -403,7 +403,7 @@ export function InputArea({
 					});
 				} catch (error) {
 					console.error("Failed to convert image:", error);
-					new Notice("[Agent Client] Failed to attach image");
+					new Notice("[Langpad] Failed to attach image");
 				}
 			}
 			return result;
@@ -426,7 +426,7 @@ export function InputArea({
 			for (const file of files) {
 				const filePath = webUtils.getPathForFile(file);
 				if (!filePath) {
-					new Notice("[Agent Client] Could not determine file path");
+					new Notice("[Langpad] Could not determine file path");
 					continue;
 				}
 				result.push({
@@ -491,7 +491,7 @@ export function InputArea({
 						newAttachments.push(...converted);
 					} else {
 						new Notice(
-							"[Agent Client] This agent does not support image paste. Try drag & drop instead.",
+							"[Langpad] This agent does not support image paste. Try drag & drop instead.",
 						);
 					}
 				}

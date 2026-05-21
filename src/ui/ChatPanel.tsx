@@ -247,6 +247,12 @@ export function ChatPanel({
 	// ============================================================
 	const activeAgentLabel = useMemo(() => {
 		const activeId = session.agentId;
+		if (activeId === plugin.settings.langcli.id) {
+			return (
+				plugin.settings.langcli.displayName ||
+				plugin.settings.langcli.id
+			);
+		}
 		if (activeId === plugin.settings.claude.id) {
 			return (
 				plugin.settings.claude.displayName || plugin.settings.claude.id
@@ -827,7 +833,7 @@ export function ChatPanel({
 							await approveActivePermissionRef.current();
 						if (!success) {
 							new Notice(
-								"[Agent Client] No active permission request",
+								"[Langpad] No active permission request",
 							);
 						}
 					})();
@@ -844,7 +850,7 @@ export function ChatPanel({
 							await rejectActivePermissionRef.current();
 						if (!success) {
 							new Notice(
-								"[Agent Client] No active permission request",
+								"[Langpad] No active permission request",
 							);
 						}
 					})();

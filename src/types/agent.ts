@@ -97,4 +97,5 @@ export type CustomAgentSettings = BaseAgentSettings;
  * Langcli does not need an API key — it supports multi-model routing
  * natively via `langcli --acp`.
  */
-export interface LangcliAgentSettings extends BaseAgentSettings {}
+export type LangcliAgentSettings = BaseAgentSettings;
+//export interface LangcliAgentSettings extends BaseAgentSettings {}

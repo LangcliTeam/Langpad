@@ -122,11 +122,11 @@ export function useChatActions(
 				if (filePath) {
 					const context =
 						trigger === "newChat" ? "new session" : "closing chat";
-					new Notice(`[Agent Client] Chat exported to ${filePath}`);
+					new Notice(`[Langpad] Chat exported to ${filePath}`);
 					logger.log(`Chat auto-exported before ${context}`);
 				}
 			} catch {
-				new Notice("[Agent Client] Failed to export chat");
+				new Notice("[Langpad] Failed to export chat");
 			}
 		},
 		[plugin, logger],
@@ -231,7 +231,7 @@ export function useChatActions(
 
 			// Skip if already empty AND not switching agents
 			if (messages.length === 0 && !isAgentSwitch) {
-				new Notice("[Agent Client] Already a new session");
+				new Notice("[Langpad] Already a new session");
 				return;
 			}
 
@@ -276,7 +276,7 @@ export function useChatActions(
 
 	const handleExportChat = useCallback(async () => {
 		if (messages.length === 0) {
-			new Notice("[Agent Client] No messages to export");
+			new Notice("[Langpad] No messages to export");
 			return;
 		}
 
@@ -291,9 +291,9 @@ export function useChatActions(
 				session.createdAt,
 				openFile,
 			);
-			new Notice(`[Agent Client] Chat exported to ${filePath}`);
+			new Notice(`[Langpad] Chat exported to ${filePath}`);
 		} catch (error) {
-			new Notice("[Agent Client] Failed to export chat");
+			new Notice("[Langpad] Failed to export chat");
 			logger.error("Export error:", error);
 		}
 	}, [messages, session, plugin, logger]);
@@ -320,9 +320,9 @@ export function useChatActions(
 
 		try {
 			await agent.forceRestartAgent();
-			new Notice("[Agent Client] Agent restarted");
+			new Notice("[Langpad] Agent restarted");
 		} catch (error) {
-			new Notice("[Agent Client] Failed to restart agent");
+			new Notice("[Langpad] Failed to restart agent");
 			logger.error("Restart error:", error);
 		}
 	}, [

@@ -623,10 +623,16 @@ export default class AgentClientPlugin extends Plugin {
 	}
 
 	/**
-	 * Get all available agents (claude, codex, gemini, custom)
+	 * Get all available agents (langcli, claude, codex, gemini, custom)
 	 */
 	getAvailableAgents(): Array<{ id: string; displayName: string }> {
 		return [
+			{
+				id: this.settings.langcli.id,
+				displayName:
+					this.settings.langcli.displayName ||
+					this.settings.langcli.id,
+			},
 			{
 				id: this.settings.claude.id,
 				displayName:
@@ -1105,9 +1111,7 @@ export default class AgentClientPlugin extends Plugin {
 				const newestVersion = hasNewerStable
 					? latestStable
 					: latestPrerelease;
-				new Notice(
-					`[Langpad] Update available: v${newestVersion}`,
-				);
+				new Notice(`[Langpad] Update available: v${newestVersion}`);
 				return true;
 			}
 		} else {
